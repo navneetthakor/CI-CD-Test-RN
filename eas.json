@@ -3,15 +3,16 @@
     "version": ">= 7.0.0"
   },
   "build": {
-    "android": {
-      "release": {
-        "workflow": "managed"
+    "development": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
       }
-    }
-  },
-  "submit": {
-    "android": {
-      "release": {}
+    },
+    "production": {
+      "android": {
+        "buildType": "aab"
+      }
     }
   }
 }

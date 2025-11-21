@@ -29,4 +29,5 @@ jobs:
         run:  echo "EXPO_TOKEN=${{ secrets.EXPO_TOKEN }}" >> $GITHUB_ENV
 
       - name: Run Android Build
-        run: eas build --platform android --non-interactive
+        run: eas build --platform android --profile development --non-interactive
+
