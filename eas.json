@@ -1,0 +1,17 @@
+{
+  "cli": {
+    "version": ">= 7.0.0"
+  },
+  "build": {
+    "android": {
+      "release": {
+        "workflow": "managed"
+      }
+    }
+  },
+  "submit": {
+    "android": {
+      "release": {}
+    }
+  }
+}
