@@ -1,0 +1,33 @@
+name: EAS Android Build
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:     # adds action button on github to manually trigger the workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.15.0
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: set Expo Token
+        run:  echo "EXPO_TOKEN=${{ secrets.EXPO_TOKEN }}" >> $GITHUB_ENV
+
+      - name: Run Android Build
+        run: eas build --platform android --profile development --non-interactive --wait
+
